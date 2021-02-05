@@ -3,7 +3,7 @@
 **proyecto:** poo2_2021_0_unidad_1_clase_vectores
 ##Tarea
 1. Modificar el programa de modo que permita cambiar el color de las figuras si ambas colisionan
-2. Modificar el programa de modo si un elipse y un rectangulo colisionan remueva aleatoriamente una de las figuras
+2. Modificar el programa de modo si un elipse y un rectangulo colisionaran entonces debia removerse del programa una de las figuras aleatoriamente. 
 3. Completar la clase vector para que pueda incluir los metodos insert y erase similares al std::vector
 
 ```cpp
