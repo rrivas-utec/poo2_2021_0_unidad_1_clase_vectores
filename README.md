@@ -3,8 +3,9 @@
 **proyecto:** poo2_2021_0_unidad_1_clase_vectores
 ##Tarea
 1. Modificar el programa de modo que permita cambiar el color de las figuras si ambas colisionan
-2. Modificar el programa de modo si un elipse y un rectangulo colisionaran entonces debia removerse del programa una de las figuras aleatoriamente. 
-3. Completar la clase vector para que pueda incluir los metodos insert y erase similares al std::vector
+2. Modificar el programa para que incluya adicionalmente una clase derivada `triangle_t`, aunque la velocidad del triangulo acepta los componentes horizontal (vx) y vertical (vy) el movimiento solo sera en una dirección (horizontal o vertical) y se elegira una de ellas aleatoriamente.   
+3. Modificar el programa de modo que si 2 figuras diferentes colisionan entonces el programa debe remove una de las figuras aleatoriamente. 
+4. Completar la clase vector para que pueda incluir los metodos insert y erase similares al std::vector
 
 ```cpp
   namespace utec {
@@ -18,7 +19,7 @@
       ...
     };
 ```
-4. Sobrecargar el operador + en la clase utec::vector de modo que permita concatenar 2 vectores
+5. Sobrecargar el operador + en la clase utec::vector de modo que permita concatenar 2 vectores
 
 ```cpp
   utec::vector<int> v1;
