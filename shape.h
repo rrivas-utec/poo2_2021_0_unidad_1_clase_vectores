@@ -27,6 +27,9 @@ namespace utec {
         virtual ~shape_t() = default;
         virtual void draw() = 0;
         virtual void move() = 0;
+        friend void bounce_wall(shape_t* a);
+        friend bool have_collided(shape_t* a, shape_t* b);
+        friend void bounce(shape_t* a, shape_t* b);
     };
 
     class rectangle_t: public shape_t {
@@ -45,8 +48,14 @@ namespace utec {
         void move() override;
     };
 
+    // Verifica la colision y realiza el rebote con las paredes
+    void bounce_wall(shape_t* a);
 
+    // Verifica la colision entre 2 figuras
+    bool have_collided(shape_t* a, shape_t* b);
 
+    // Realiza el rebote entre 2 figuras
+    void bounce(shape_t* a, shape_t* b);
 }
 
 #endif //POO2_2021_0_UNIDAD_1_CLASE_VECTORES_SHAPE_H
