@@ -6,6 +6,7 @@
 #define POO2_2021_0_UNIDAD_1_CLASE_VECTORES_MY_VECTOR_H
 
 #include "shape.h"
+#include "my_algorithm.h"
 
 namespace utec {
 
@@ -19,25 +20,23 @@ namespace utec {
 
         // Constructor copia (Caso #1)
         vector(const vector& other) {
-            lenght = other.length;
+            length = other.length;
             data = new T[length];
-            for(size_t i = 0; i < length; ++i)
-                data[i] = other.data[i];
+            copy(other.data, other.data+other.length, data);
         }
 
         // Asignacion de un vector por copy (Caso #2)
         vector& operator= (const vector& other) {
             delete[] data;
-            lenght = other.length;
+            length = other.length;
             data = new T[length];
-            for(size_t i = 0; i < length; ++i)
-                data[i] = other.data[i];
+            copy(other.data, other.data+other.length, data);
             return *this;
         }
 
         // Constructor move (Caso #1)
         vector(vector&& other) noexcept { // && referencia rvalue
-            lenght = other.length;
+            length = other.length;
             data = other.data;
             other.data = nullptr;
         }
@@ -45,7 +44,7 @@ namespace utec {
         // Asignacion de un vector por move (Caso #2)
         vector& operator= (vector&& other) noexcept {
             delete[] data;
-            lenght = other.length;
+            length = other.length;
             data = other.data;
             other.data = nullptr;
             return *this;
@@ -57,11 +56,31 @@ namespace utec {
         }
 
         void push_back(const T& item) {
-
+            // 1. Reserva length + 1 espacio en temp
+            auto temp = new T[length + 1];
+            // 2. Copiar de data hacia temp
+            copy(data, data+length, temp);
+            // 3. Borrar los valores anteriores de data
+            delete[] data;
+            // 4. Le asigno temp a data
+            data = temp;
+            // 5. Adiciono el item en data
+            data[length] = item;
+            // 6. Incremento el tamaño de lenght
+            length++;
         }
 
         void pop() {
-
+            // 1. Reserva length - 1 espacio en temp
+            auto temp = new T[length - 1];
+            // 2. Copiar de data hacia temp solo los valores hasta length - 1
+            copy(data, data+length-1, temp);
+            // 3. Eliminar data
+            delete [] data;
+            // 4. Le asigno temp a data
+            data = temp;
+            // 5. disminuir el tamaño de lenght
+            length--;
         }
 
         [[nodiscard]] size_t size() const {

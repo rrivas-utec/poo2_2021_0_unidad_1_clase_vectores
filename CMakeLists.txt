@@ -4,7 +4,7 @@ project(poo2_2021_0_unidad_1_clase_vectores)
 # Archivos del Projecto
 set(PROJECT_SOURCE
         main.cpp
-        common_types.h platform_types.h shape.cpp shape.h my_vector.h)
+        common_types.h platform_types.h shape.cpp shape.h my_vector.h my_algorithm.h render.cpp render.h)
 
 # C++ Standard se sugiere 11 o 14
 set(CMAKE_CXX_STANDARD 17)

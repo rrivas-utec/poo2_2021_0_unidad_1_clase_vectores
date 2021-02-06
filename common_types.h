@@ -8,8 +8,8 @@
 namespace utec {
 //    typedef float length_t;
 //    typedef float speed_t;
-    using length_t = float ;
-    using speed_t = float ;
+    using length_t = float;
+    using speed_t = float;
     using limit_t = size_t;
 
     struct position_t {
@@ -19,7 +19,7 @@ namespace utec {
 
     struct dimension_t {
         length_t width;
-        length_t height
+        length_t height;
     };
 
     struct velocity_t {
